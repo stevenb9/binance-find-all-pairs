@@ -24,14 +24,14 @@ for s in exchange_info['symbols']:
 
 print(pairs)
 
-if click.confirm('Write to Output.xtt file?', default=True):
+if click.confirm('Write to Output.txt file?', default=True):
     text_file = open("Output.txt", "w")
     text_file.write(pairs)
     text_file.close()
-    print("Wrote file: " + os.path.realpath(text_file.name))
+    print("Wrote Output.txt")
 
-if click.confirm('Write to Output.xlsx file?', default=True):
-    workbook = xlsxwriter.Workbook('Output.xlsx')
+if click.confirm('Write to .xlsx file?', default=True):
+    workbook = xlsxwriter.Workbook('output.xlsx')
     worksheet = workbook.add_worksheet()
       
     # Start from the first cell.
@@ -51,3 +51,4 @@ if click.confirm('Write to Output.xlsx file?', default=True):
         row += 1
           
     workbook.close()
+    print("Wrote Output.xlsx")
